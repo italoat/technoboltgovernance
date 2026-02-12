@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechnoBolt Governance | Intelligence for the Boardroom</title>
+    <title>TechnoBolt Governance | O Sistema Operacional do C-Level</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -20,24 +20,22 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
+                        display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
-                        bg: '#050505', 
-                        surface: '#0F0F11',
-                        surfaceLight: '#18181b',
-                        primary: '#3b82f6',
-                        accent: '#8b5cf6',
-                        success: '#10b981',
+                        bg: '#030304', 
+                        surface: '#0A0A0C',
+                        surfaceHighlight: '#151518',
+                        primary: '#3b82f6', // Azul confiável
+                        accent: '#6366f1',  // Indigo vibrante
                     },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
@@ -46,290 +44,308 @@
     </script>
 
     <style>
-        body { background-color: #050505; color: #e4e4e7; overflow-x: hidden; }
+        body { background-color: #030304; color: #e4e4e7; overflow-x: hidden; }
         
-        /* Glassmorphism Premium */
+        /* Glassmorphism Ultra Premium */
         .glass {
-            background: rgba(20, 20, 23, 0.4);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 10, 12, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
-        .glass-card {
-            background: linear-gradient(145deg, rgba(24, 24, 27, 0.6) 0%, rgba(9, 9, 11, 0.8) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .feature-card {
+            background: linear-gradient(180deg, rgba(21, 21, 24, 0.6) 0%, rgba(10, 10, 12, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
         }
 
-        .glass-card:hover {
-            border-color: rgba(59, 130, 246, 0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.1);
+        .feature-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            background: linear-gradient(180deg, rgba(21, 21, 24, 0.8) 0%, rgba(15, 15, 20, 0.9) 100%);
+            transform: translateY(-2px);
         }
 
-        /* Background Effects */
-        .glow {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.15;
-            z-index: -1;
+        /* Tech Grid Background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="glow w-[500px] h-[500px] bg-primary top-[-100px] left-[-100px]"></div>
-    <div class="glow w-[600px] h-[600px] bg-accent bottom-0 right-[-200px]"></div>
-
-    <nav class="fixed w-full z-50 top-0 glass border-b-0">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-gradient-to-tr from-primary to-accent rounded flex items-center justify-center">
-                        <i data-lucide="zap" class="text-white w-5 h-5 fill-current"></i>
-                    </div>
-                    <span class="font-bold text-lg tracking-tight text-white">TechnoBolt <span class="text-zinc-500 font-light">| Elite</span></span>
+    <nav class="fixed w-full z-50 top-0 glass">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center border border-primary/30">
+                    <i data-lucide="zap" class="text-primary w-5 h-5 fill-current"></i>
                 </div>
-                <div class="hidden md:flex gap-8">
-                    <a href="#plataforma" class="text-sm text-zinc-400 hover:text-white transition">Plataforma</a>
-                    <a href="#seguranca" class="text-sm text-zinc-400 hover:text-white transition">Segurança</a>
-                    <a href="#contato" class="text-sm text-zinc-400 hover:text-white transition">Enterprise</a>
-                </div>
-                <a href="#contato" class="group relative px-6 py-2 rounded-full bg-white text-black font-semibold text-sm transition overflow-hidden">
-                    <span class="relative z-10 group-hover:text-primary transition">Solicitar Demo</span>
-                    <div class="absolute inset-0 bg-zinc-200 transform scale-x-0 group-hover:scale-x-100 transition origin-left duration-300"></div>
-                </a>
+                <span class="font-display font-bold text-lg text-white">TechnoBolt <span class="text-zinc-500 font-normal">| Governance</span></span>
             </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
+                <a href="#solucoes" class="hover:text-white transition">Funcionalidades</a>
+                <a href="#arquitetura" class="hover:text-white transition">Arquitetura</a>
+                <a href="#diferencial" class="hover:text-white transition">Diferencial</a>
+            </div>
+            <a href="#contato" class="px-5 py-2 bg-white text-black font-semibold text-sm rounded-full hover:bg-zinc-200 transition">
+                Solicitar Acesso
+            </a>
         </div>
     </nav>
 
-    <section class="pt-40 pb-20 relative">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 animate-fade-in-up">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
-                <span class="text-xs font-medium text-zinc-300 tracking-wide uppercase">AI Governance V5.6</span>
+    <section class="pt-32 pb-24 relative bg-grid">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg to-bg"></div>
+        
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-8 animate-fade-in-up">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                LIVE SYSTEM V5.6
             </div>
-
-            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1]">
-                A distância entre <br/> 
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-primary to-zinc-200">Dados e Decisão</span>
-                <br/> agora é zero.
+            
+            <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.1s;">
+                O Sistema Operacional <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">Definitivo do C-Level.</span>
             </h1>
             
-            <p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-                Um sistema operacional cognitivo para C-Levels. Unifique e-mails, KPIs e estratégia em um dashboard que não apenas mostra o passado, mas prevê o futuro.
+            <p class="text-xl text-zinc-400 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                Uma suíte de governança que unifica <strong>9 ferramentas críticas</strong> em uma única inteligência. Elimine silos, preveja riscos e execute com precisão cirúrgica.
             </p>
 
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#plataforma" class="px-8 py-4 bg-primary hover:bg-primaryDark text-white rounded-xl font-semibold text-lg transition shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] flex items-center justify-center gap-2">
-                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Explorar o Sistema
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.3s;">
+                <a href="#solucoes" class="px-8 py-4 bg-primary hover:bg-blue-600 text-white font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+                    <i data-lucide="grid" class="w-5 h-5"></i> Explorar Soluções
                 </a>
-                <a href="#" class="px-8 py-4 bg-surface hover:bg-surfaceLight border border-white/10 text-zinc-300 hover:text-white rounded-xl font-medium text-lg transition flex items-center justify-center gap-2">
-                    <i data-lucide="play" class="w-5 h-5 fill-current"></i> Ver Demo (1m)
+                <a href="#arquitetura" class="px-8 py-4 bg-surfaceHighlight border border-white/5 hover:border-white/10 text-zinc-300 hover:text-white font-bold rounded-xl transition flex items-center justify-center gap-2">
+                    <i data-lucide="cpu" class="w-5 h-5"></i> Ver Arquitetura
                 </a>
-            </div>
-        </div>
-
-        <div class="mt-24 max-w-6xl mx-auto px-4 relative animate-float">
-            <div class="rounded-xl bg-[#09090b] border border-white/10 shadow-2xl shadow-primary/10 overflow-hidden relative">
-                
-                <div class="h-12 bg-white/5 border-b border-white/5 flex items-center px-4 justify-between">
-                    <div class="flex gap-2">
-                        <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
-                    </div>
-                    <div class="text-[10px] font-mono text-zinc-500 flex gap-4">
-                        <span>CPU: 12%</span>
-                        <span>MEM: OPTIMIZED</span>
-                        <span class="text-green-500">CONNECTED</span>
-                    </div>
-                </div>
-
-                <div class="p-6 grid grid-cols-12 gap-6 bg-grid-pattern">
-                    <div class="hidden md:block col-span-2 space-y-4">
-                        <div class="h-8 w-full bg-primary/20 rounded border border-primary/30"></div>
-                        <div class="h-8 w-full bg-white/5 rounded border border-white/5"></div>
-                        <div class="h-8 w-full bg-white/5 rounded border border-white/5"></div>
-                        <div class="h-8 w-full bg-white/5 rounded border border-white/5"></div>
-                    </div>
-                    
-                    <div class="col-span-12 md:col-span-10 grid grid-cols-3 gap-6">
-                        <div class="h-32 rounded-lg bg-gradient-to-br from-white/5 to-transparent border border-white/5 p-4 flex flex-col justify-between">
-                            <div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center"><i data-lucide="trending-up" class="w-4 h-4 text-primary"></i></div>
-                            <div class="h-2 w-1/2 bg-white/10 rounded"></div>
-                        </div>
-                        <div class="h-32 rounded-lg bg-gradient-to-br from-white/5 to-transparent border border-white/5 p-4 flex flex-col justify-between">
-                            <div class="w-8 h-8 rounded bg-accent/20 flex items-center justify-center"><i data-lucide="shield-alert" class="w-4 h-4 text-accent"></i></div>
-                            <div class="h-2 w-1/2 bg-white/10 rounded"></div>
-                        </div>
-                        <div class="h-32 rounded-lg bg-gradient-to-br from-white/5 to-transparent border border-white/5 p-4 flex flex-col justify-between">
-                            <div class="w-8 h-8 rounded bg-success/20 flex items-center justify-center"><i data-lucide="activity" class="w-4 h-4 text-success"></i></div>
-                            <div class="h-2 w-1/2 bg-white/10 rounded"></div>
-                        </div>
-                        
-                        <div class="col-span-3 h-64 rounded-lg bg-white/5 border border-white/5 relative flex items-center justify-center overflow-hidden group">
-                            <div class="absolute bottom-6 right-6 max-w-sm bg-black/90 backdrop-blur border border-primary/50 p-4 rounded-xl shadow-2xl transform translate-y-2 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition duration-500">
-                                <div class="flex items-center gap-2 mb-2">
-                                    <i data-lucide="brain-circuit" class="w-4 h-4 text-primary animate-pulse"></i>
-                                    <span class="text-xs font-bold text-primary tracking-wider">AI INSIGHT</span>
-                                </div>
-                                <p class="text-xs text-zinc-300 leading-relaxed">
-                                    Detectei uma anomalia de +15% nos custos operacionais correlacionada aos novos contratos de logística. Sugiro revisão imediata.
-                                </p>
-                            </div>
-                            <svg class="w-full h-full text-white/10" viewBox="0 0 100 20" preserveAspectRatio="none">
-                                <path d="M0 15 Q 10 5 20 12 T 40 10 T 60 15 T 80 5 T 100 12" fill="none" stroke="currentColor" stroke-width="0.5"/>
-                                <path d="M0 15 Q 10 5 20 12 T 40 10 T 60 15 T 80 5 T 100 12 V 20 H 0 Z" fill="currentColor" fill-opacity="0.1"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <section id="plataforma" class="py-32 bg-surfaceLight/20 border-y border-white/5">
+    <section id="solucoes" class="py-24 bg-surface border-y border-white/5 relative">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16 md:flex justify-between items-end">
-                <div class="max-w-2xl">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">O "Sistema Nervoso Central" da sua empresa.</h2>
-                    <p class="text-zinc-400">9 módulos integrados. Uma única fonte de verdade. Projetado para eliminar o ruído e amplificar o sinal.</p>
+            <div class="mb-16">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">9 Módulos. Uma única verdade.</h2>
+                <p class="text-zinc-400 max-w-2xl">Substitua ferramentas fragmentadas por um ecossistema integrado onde os dados fluem sem atrito.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="feature-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition">
+                        <i data-lucide="layout-dashboard" class="w-6 h-6 text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">1. Centro de Comando</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Conecte planilhas públicas ou privadas. Algoritmos de "Smart Merge" garantem que seus gráficos nunca quebrem, enquanto a IA narra os insights.
+                    </p>
                 </div>
-                <div class="hidden md:block">
-                    <i data-lucide="layers" class="w-12 h-12 text-white/10"></i>
+
+                <div class="feature-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 transition">
+                        <i data-lucide="mail-search" class="w-6 h-6 text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">2. Inteligência de Emails</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Varredura em tempo real via IMAP seguro. A IA detecta riscos jurídicos e urgências na caixa de entrada antes que você abra o Outlook.
+                    </p>
+                </div>
+
+                <div class="feature-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition">
+                        <i data-lucide="file-check" class="w-6 h-6 text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">3. Análise de Documentos</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Seu auditor digital 24/7. Upload de contratos PDF/DOCX: a IA traduz o "juridiquês" e destaca cláusulas abusivas instantaneamente.
+                    </p>
+                </div>
+
+                <div class="feature-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition">
+                        <i data-lucide="newspaper" class="w-6 h-6 text-amber-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">4. Briefing Estratégico</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        O jornal matinal do CEO. Cruzamento automático de KPIs internos com notícias de mercado para gerar uma análise SWOT diária.
+                    </p>
+                </div>
+
+                <div class="feature-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-pink-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-pink-500/20 transition">
+                        <i data-lucide="presentation" class="w-6 h-6 text-pink-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">5. Fábrica de Slides</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Transforme relatórios de texto em estruturas de apresentação profissionais prontas para o Conselho em um clique.
+                    </p>
+                </div>
+
+                <div class="feature-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition">
+                        <i data-lucide="dices" class="w-6 h-6 text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">6. Simulador de Decisões</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        War Gaming corporativo. Simule cenários complexos (M&A, Pivô) e receba probabilidades de sucesso baseadas em dados históricos.
+                    </p>
+                </div>
+
+                <div class="feature-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition">
+                        <i data-lucide="pen-tool" class="w-6 h-6 text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">7. Redator de Elite</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Copywriting ajustável. Redija e-mails de negociação ou crise definindo o tom (Diplomático, Assertivo, Empático) e o objetivo.
+                    </p>
+                </div>
+
+                <div class="feature-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/10 transition">
+                        <i data-lucide="bot" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">8. Conselheiro IA</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Seu Board de bolso. Debata estratégias com personas treinadas (CFO Cético, Gestor de Crise) sem viés político.
+                    </p>
+                </div>
+
+                <div class="feature-card p-8 rounded-2xl group cursor-default">
+                    <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-500/20 transition">
+                        <i data-lucide="calendar-clock" class="w-6 h-6 text-orange-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">9. Agenda Deep Work</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Gestão de tempo estratégica. O sistema blinda seus horários de foco e prepara briefings contextuais antes de cada reunião.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="arquitetura" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-16 items-center">
+            
+            <div class="lg:w-1/2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-400 text-xs font-mono mb-6">
+                    <i data-lucide="code-2" class="w-3 h-3"></i> TECH STACK
+                </div>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+                    Arquitetura Serverless <br/> de Alta Disponibilidade.
+                </h2>
+                <p class="text-zinc-400 mb-8 leading-relaxed">
+                    Construído sobre uma infraestrutura moderna que desacopla inteligência e armazenamento. Garantimos latência zero e segurança de nível bancário para seus dados sensíveis.
+                </p>
+                
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4 text-zinc-300">
+                        <div class="w-10 h-10 rounded-lg bg-surfaceHighlight border border-white/5 flex items-center justify-center">
+                            <i data-lucide="cpu" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <div>
+                            <strong class="block text-white text-sm">Backend Python (FastAPI)</strong>
+                            <span class="text-xs text-zinc-500">Processamento assíncrono de alta performance.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-4 text-zinc-300">
+                        <div class="w-10 h-10 rounded-lg bg-surfaceHighlight border border-white/5 flex items-center justify-center">
+                            <i data-lucide="database" class="w-5 h-5 text-green-500"></i>
+                        </div>
+                        <div>
+                            <strong class="block text-white text-sm">MongoDB Atlas (NoSQL)</strong>
+                            <span class="text-xs text-zinc-500">Armazenamento flexível e escalável de logs e JSONs.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-4 text-zinc-300">
+                        <div class="w-10 h-10 rounded-lg bg-surfaceHighlight border border-white/5 flex items-center justify-center">
+                            <i data-lucide="brain-circuit" class="w-5 h-5 text-accent"></i>
+                        </div>
+                        <div>
+                            <strong class="block text-white text-sm">LLM Agnostic Engine</strong>
+                            <span class="text-xs text-zinc-500">Rotação inteligente de chaves (Gemini/GPT) para resiliência.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="lg:w-1/2 relative">
+                <div class="absolute inset-0 bg-primary/20 blur-[100px] rounded-full opacity-20"></div>
+                <div class="relative glass rounded-2xl p-8 border border-white/10">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-center gap-4">
+                            <div class="px-4 py-2 bg-surface border border-white/10 rounded text-xs text-zinc-400">E-mail (IMAP)</div>
+                            <div class="px-4 py-2 bg-surface border border-white/10 rounded text-xs text-zinc-400">Planilhas (CSV)</div>
+                        </div>
+                        <div class="h-8 w-px bg-white/20 mx-auto"></div>
+                        <div class="p-6 bg-surfaceHighlight rounded-xl border border-primary/30 text-center relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary animate-pulse"></div>
+                            <i data-lucide="server" class="w-8 h-8 text-white mx-auto mb-2"></i>
+                            <h4 class="text-white font-bold text-sm">TechnoBolt Core API</h4>
+                            <p class="text-[10px] text-zinc-500 mt-1">Python Data Processing & AI Orchestration</p>
+                        </div>
+                        <div class="h-8 w-px bg-white/20 mx-auto"></div>
+                        <div class="p-4 bg-surface border border-white/10 rounded-xl text-center">
+                            <h4 class="text-white font-bold text-sm flex items-center justify-center gap-2">
+                                <i data-lucide="monitor" class="w-4 h-4 text-primary"></i> React Frontend
+                            </h4>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-3 gap-4 h-auto md:h-[800px]">
-                
-                <div class="glass-card md:col-span-2 md:row-span-2 rounded-3xl p-8 flex flex-col justify-between group overflow-hidden relative">
-                    <div class="absolute top-0 right-0 p-32 bg-primary/20 blur-[100px] rounded-full group-hover:bg-primary/30 transition duration-700"></div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6">
-                            <i data-lucide="layout-grid" class="w-6 h-6 text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Centro de Comando</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">
-                            Conecte planilhas e bancos de dados em segundos. Nossa tecnologia "Smart Merge" estabiliza visualmente dados caóticos, enquanto a IA narra a história por trás dos números.
-                        </p>
-                    </div>
-                    <div class="mt-8 relative h-40 bg-black/40 rounded-lg border border-white/5 overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center text-zinc-700 text-[10px] font-mono">
-                            [ LIVE DATA STREAMING ]
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </section>
 
-                <div class="glass-card md:col-span-1 md:row-span-2 rounded-3xl p-6 flex flex-col relative group">
-                    <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center mb-4">
-                        <i data-lucide="mail" class="w-5 h-5 text-accent"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Email Intel</h3>
-                    <p class="text-zinc-400 text-xs mb-4">
-                        Varredura de sentimentos e riscos na caixa de entrada. Saiba o que é urgente antes de abrir.
+    <section id="diferencial" class="py-24 bg-surfaceHighlight border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-display text-3xl font-bold text-white mb-12">Por que o TechnoBolt é diferente?</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="p-6 rounded-xl bg-surface border border-white/5">
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                        <i data-lucide="shuffle" class="text-primary w-5 h-5"></i> Smart Merge Technology
+                    </h3>
+                    <p class="text-zinc-400 text-sm">
+                        Enquanto outros dashboards quebram quando você muda uma coluna no Excel, nosso algoritmo proprietário entende o contexto e adapta a visualização automaticamente.
                     </p>
-                    <div class="mt-auto space-y-2">
-                        <div class="p-2 bg-red-500/10 border border-red-500/20 rounded flex items-center gap-2">
-                            <i data-lucide="alert-circle" class="w-3 h-3 text-red-500"></i>
-                            <span class="text-[10px] text-red-400 font-mono">RISCO JURÍDICO DETECTADO</span>
-                        </div>
-                        <div class="p-2 bg-white/5 border border-white/10 rounded flex items-center gap-2 opacity-50">
-                            <i data-lucide="check" class="w-3 h-3 text-zinc-500"></i>
-                            <span class="text-[10px] text-zinc-500 font-mono">Newsletter (Baixa Prio)</span>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="glass-card md:col-span-1 md:row-span-1 rounded-3xl p-6 hover:bg-white/5 transition cursor-default">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                            <i data-lucide="bot" class="w-5 h-5 text-white"></i>
-                        </div>
-                        <span class="px-2 py-1 rounded bg-green-500/20 text-green-400 text-[10px] font-bold">ONLINE</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Conselheiro IA</h3>
-                    <p class="text-zinc-400 text-xs mt-2">Debata estratégias com personas de IA (CFO, Gestor de Crise) sem viés político.</p>
+                <div class="p-6 rounded-xl bg-surface border border-white/5">
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                        <i data-lucide="shield-check" class="text-green-500 w-5 h-5"></i> Privacy-First Design
+                    </h3>
+                    <p class="text-zinc-400 text-sm">
+                        Não treinamos IA com seus dados. Seu contexto estratégico existe apenas durante a sua sessão, garantindo sigilo total para operações de M&A e Governança.
+                    </p>
                 </div>
-
-                <div class="glass-card md:col-span-1 md:row-span-1 rounded-3xl p-6 flex flex-col justify-center">
-                    <div class="flex items-center gap-3 mb-2">
-                        <i data-lucide="calendar-clock" class="w-5 h-5 text-blue-400"></i>
-                        <h3 class="text-lg font-bold text-white">Agenda Deep Work</h3>
-                    </div>
-                    <p class="text-zinc-400 text-xs">Proteção automática de blocos de foco e detecção de conflitos.</p>
-                </div>
-
-                <div class="glass-card md:col-span-2 md:row-span-1 rounded-3xl p-6 flex items-center gap-6">
-                    <div class="flex-1">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                                <i data-lucide="file-search" class="w-5 h-5 text-white"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-white">Auditor de Documentos</h3>
-                        </div>
-                        <p class="text-zinc-400 text-sm">
-                            Upload de contratos PDF/DOCX. A IA lê o "juridiquês" e resume riscos e cláusulas abusivas em linguagem executiva.
-                        </p>
-                    </div>
-                    <div class="hidden md:flex h-full w-1/3 bg-white/5 rounded border border-white/5 items-center justify-center">
-                        <i data-lucide="file-text" class="w-8 h-8 text-zinc-600"></i>
-                    </div>
-                </div>
-
-                <div class="glass-card md:col-span-2 md:row-span-1 rounded-3xl p-6 flex items-center justify-between group hover:border-primary/50 cursor-pointer">
-                    <div>
-                        <h3 class="text-lg font-bold text-white">E muito mais...</h3>
-                        <p class="text-zinc-400 text-xs mt-1">Briefing Estratégico, Simulador de Decisões, Fábrica de PPTs.</p>
-                    </div>
-                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition">
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
     <section id="contato" class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"></div>
-        
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Assuma o controle total.</h2>
-            <p class="text-xl text-zinc-400 mb-10 leading-relaxed">
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">Assuma o controle total.</h2>
+            <p class="text-xl text-zinc-400 mb-10">
                 O TechnoBolt Governance é uma ferramenta exclusiva para líderes que não podem se dar ao luxo de errar.
-                <br class="hidden md:block"/>Não vendemos licenças, formamos parcerias de governança.
             </p>
             
-            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-                <form class="w-full max-w-md flex gap-2">
-                    <input type="email" placeholder="seu@emailcorporativo.com" class="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-4 text-white focus:outline-none focus:border-primary transition" />
-                    <button type="submit" class="bg-white text-black px-6 py-4 rounded-lg font-bold hover:bg-zinc-200 transition whitespace-nowrap">
-                        Solicitar Acesso
-                    </button>
-                </form>
-            </div>
-            <p class="mt-6 text-xs text-zinc-600">
-                Acesso sujeito à análise de perfil. Vagas limitadas para o programa Beta Executivo.
-            </p>
+            <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input type="email" placeholder="seu@emailcorporativo.com" class="flex-1 px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-primary transition">
+                <button type="button" class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-zinc-200 transition whitespace-nowrap">
+                    Solicitar Convite
+                </button>
+            </form>
+            <p class="text-xs text-zinc-600 mt-6">Acesso restrito. Sujeito à análise de perfil corporativo.</p>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 bg-black text-center relative z-10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center opacity-50 hover:opacity-100 transition duration-500">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <i data-lucide="zap" class="w-4 h-4 text-white"></i>
-                <span class="font-bold text-white text-sm">TechnoBolt Solutions</span>
-            </div>
-            <div class="text-xs text-zinc-500">
-                &copy; 2026. Security First Architecture. São Paulo, BR.
-            </div>
+    <footer class="py-12 border-t border-white/5 bg-bg text-center">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center opacity-60">
+            <span class="text-sm font-bold text-white mb-4 md:mb-0">TechnoBolt Solutions</span>
+            <span class="text-xs text-zinc-500">&copy; 2026. Security First Architecture.</span>
         </div>
     </footer>
 
